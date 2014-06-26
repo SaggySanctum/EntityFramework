@@ -58,12 +58,124 @@ namespace Microsoft.Data.Entity.Migrations.Design
             return string.Format(CultureInfo.CurrentCulture, GetString("DuplicateMigrationName", "migrationName"), migrationName);
         }
 
+        /// <summary>
+        /// Please specify an assembly that contains a class that derives from DbContext, using the ContextAssembly option.
+        /// </summary>
+        internal static string ContextAssemblyNotSpecified
+        {
+            get { return GetString("ContextAssemblyNotSpecified"); }
+        }
+
+        /// <summary>
+        /// Please specify an assembly that contains a class that derives from DbContext, using the ContextAssembly option.
+        /// </summary>
+        internal static string FormatContextAssemblyNotSpecified()
+        {
+            return GetString("ContextAssemblyNotSpecified");
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' does not contain the type '{contextTypeName}'.
+        /// </summary>
+        internal static string AssemblyDoesNotContainType
+        {
+            get { return GetString("AssemblyDoesNotContainType"); }
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' does not contain the type '{contextTypeName}'.
+        /// </summary>
+        internal static string FormatAssemblyDoesNotContainType(object contextAssemblyName, object contextTypeName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("AssemblyDoesNotContainType", "contextAssemblyName", "contextTypeName"), contextAssemblyName, contextTypeName);
+        }
+
+        /// <summary>
+        /// The type '{contextTypeName}' does not derive from DbContext.
+        /// </summary>
+        internal static string TypeIsNotDbContext
+        {
+            get { return GetString("TypeIsNotDbContext"); }
+        }
+
+        /// <summary>
+        /// The type '{contextTypeName}' does not derive from DbContext.
+        /// </summary>
+        internal static string FormatTypeIsNotDbContext(object contextTypeName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("TypeIsNotDbContext", "contextTypeName"), contextTypeName);
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' does not contain a class that derives from DbContext.
+        /// </summary>
+        internal static string AssemblyDoesNotContainDbContext
+        {
+            get { return GetString("AssemblyDoesNotContainDbContext"); }
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' does not contain a class that derives from DbContext.
+        /// </summary>
+        internal static string FormatAssemblyDoesNotContainDbContext(object contextAssemblyName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("AssemblyDoesNotContainDbContext", "contextAssemblyName"), contextAssemblyName);
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' contains multiple classes that derive from DbContext. Please specify the context type using the ContextType option.
+        /// </summary>
+        internal static string AssemblyContainsMultipleDbContext
+        {
+            get { return GetString("AssemblyContainsMultipleDbContext"); }
+        }
+
+        /// <summary>
+        /// The assembly '{contextAssemblyName}' contains multiple classes that derive from DbContext. Please specify the context type using the ContextType option.
+        /// </summary>
+        internal static string FormatAssemblyContainsMultipleDbContext(object contextAssemblyName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("AssemblyContainsMultipleDbContext", "contextAssemblyName"), contextAssemblyName);
+        }
+
+        /// <summary>
+        /// Please specify a migration name using the MigrationName option.
+        /// </summary>
+        internal static string MigrationNameNotSpecified
+        {
+            get { return GetString("MigrationNameNotSpecified"); }
+        }
+
+        /// <summary>
+        /// Please specify a migration name using the MigrationName option.
+        /// </summary>
+        internal static string FormatMigrationNameNotSpecified()
+        {
+            return GetString("MigrationNameNotSpecified");
+        }
+
+        /// <summary>
+        /// Please specify a directory to store the scaffolded migration files, using the MigrationDirectory option.
+        /// </summary>
+        internal static string MigrationDirectoryNotSpecified
+        {
+            get { return GetString("MigrationDirectoryNotSpecified"); }
+        }
+
+        /// <summary>
+        /// Please specify a directory to store the scaffolded migration files, using the MigrationDirectory option.
+        /// </summary>
+        internal static string FormatMigrationDirectoryNotSpecified()
+        {
+            return GetString("MigrationDirectoryNotSpecified");
+        }
+
         private static string GetString(string name, params string[] formatterNames)
         {
             var value = _resourceManager.GetString(name);
 
             System.Diagnostics.Debug.Assert(value != null);
-
+    
             if (formatterNames != null)
             {
                 for (var i = 0; i < formatterNames.Length; i++)

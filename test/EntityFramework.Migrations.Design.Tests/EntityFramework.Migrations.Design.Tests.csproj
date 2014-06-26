@@ -34,6 +34,12 @@
     <PackageReference Include="System.Data.Common">
       <TargetFramework>net451</TargetFramework>
     </PackageReference>
+    <PackageReference Include="Microsoft.Framework.ConfigurationModel">
+      <TargetFramework>net45</TargetFramework>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Framework.DependencyInjection">
+      <TargetFramework>net45</TargetFramework>
+    </PackageReference>
     <PackageReference Include="xunit.abstractions">
       <TargetFramework>net45</TargetFramework>
     </PackageReference>
@@ -57,6 +63,7 @@
     <Compile Include="CSharpModelCodeGeneratorTest.cs" />
     <Compile Include="..\Shared\ApiConsistencyTestBase.cs" />
     <Compile Include="MigrationScaffolderTest.cs" />
+    <Compile Include="MigrationToolTest.cs" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +79,10 @@
       <Project>{6E38B72F-31DA-4AEF-8F34-B8269572EC6B}</Project>
       <Name>EntityFramework.Migrations</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\EntityFramework.SqlServer\EntityFramework.SqlServer.csproj">
+      <Project>{04e6620b-5b41-45fe-981a-f40eb7686b0e}</Project>
+      <Name>EntityFramework.SqlServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\EntityFramework\EntityFramework.csproj">
       <Project>{71415cec-8111-4c73-8751-512d22f10602}</Project>
       <Name>EntityFramework</Name>
@@ -82,6 +93,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
